@@ -58,9 +58,7 @@ export default {
         params:{
             keyWord:this.keyWord, 
         },
-        query:{
-            k:this.keyWord.toUpperCase(),
-        }
+        query:this.$route.query || {}   
     })
     }
   }

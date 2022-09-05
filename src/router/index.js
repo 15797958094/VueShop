@@ -5,10 +5,10 @@ import VueRouter from 'vue-router';
 //使用插件
 Vue.use(VueRouter);
 
-import Home from '@/pages/Home'
-import Search from '@/pages/Search'
-import Login from '@/pages/Login'
-import Register from '@/pages/Register'
+import Home from '@/views/Home'
+import Search from '@/views/Search'
+import Login from '@/views/Login'
+import Register from '@/views/Register'
 
 //重写VueRouter中原型对象上的push方法 解决push多次传相同参数报错的问题
 let originPush = VueRouter.prototype.push;
@@ -45,7 +45,8 @@ export default new VueRouter({
       path:'/search/:keyWord',
       component:Search,
       meta:{
-        show:true
+        show:true,
+        // typeShow:true
       },
       //路由组件传递props参数 
       // props:true//仅适用params 将参数作为props中的参数,
