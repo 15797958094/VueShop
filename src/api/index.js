@@ -18,10 +18,10 @@ export const reqCategoryList = () => {
 export const reqGetBannerList = () => reqMock.get('/banner')
 export const reqGetFloorList = () => reqMock.get('/floor')
 
+//获取搜索模块数据,请求地址/api/list 请求方式post 参数需要
 
-// export const reqGetBannerList = () => {
-//   return reqMock({
-//     url:'/banner',
-//     method:'GET'
-//   })
-// }
+export const reqGetSearchInfo = params => requests({
+  url:'/list',
+  method:'POST',
+  data:params
+})

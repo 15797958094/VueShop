@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 //测试能否接收三级联动数据
-import { reqCategoryList } from './api/index';
 
 //引入vuex仓库
 import store from './store/index'
@@ -14,6 +13,8 @@ Vue.component(TypeNav.name, TypeNav)
 import Carousel from '@/components/Carousel'
 Vue.component(Carousel.name, Carousel)
 
+import Pagination from '@/components/Pagination'
+Vue.component(Pagination.name, Pagination)
 import "@/mock/mockServer"
 import "swiper/css/swiper.css"
 
@@ -21,12 +22,15 @@ import "swiper/css/swiper.css"
 import router from '@/router'
 Vue.config.productionTip = false
 
+
 new Vue({
   render: h => h(App),
   router,
   store,
+  beforeCreate(){
+    Vue.prototype.$bus = this
+  },
   mounted(){
-    console.log(this)
     this.$store.dispatch('getCategoryList')
   }
 }).$mount('#app')

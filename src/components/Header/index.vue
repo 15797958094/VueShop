@@ -48,6 +48,11 @@ export default {
         keyWord:'',
     }
   },
+  mounted() {
+    this.$bus.$on('clear',() => {
+        this.keyWord = ''
+    })
+  },
   methods:{
     goSearch(){
     //   this.$router.push(`/search/${ this.keyWord }?k=${ this.keyWord.toUpperCase() }`);
@@ -56,7 +61,7 @@ export default {
         name:'search',
         //携带params参数必须有name 不能用path
         params:{
-            keyWord:this.keyWord, 
+            keyword:this.keyWord, 
         },
         query:this.$route.query || {}   
     })

@@ -44,7 +44,6 @@
 </template>
 
 <script>
-import search from '@/store/search';
 import { mapState } from 'vuex';
 export default {
   name:'TypeNav',
@@ -60,7 +59,6 @@ export default {
    ...mapState({categoryList: state => state.home.categoryList})
   },
   mounted() {
-        console.log(this.categoryList)
         this.show = false
     if(this.$route.path === '/home') {
         this.show = true
@@ -160,11 +158,8 @@ export default {
                 position: absolute;
                 background: #fafafa;
                 z-index: 999;
-
                 .all-sort-list2 {
-                    // .item:hover{
-                    //     background-color: skyblue;
-                    // }
+                    overflow: hidden;
                     .item {
                         h3 {
                             line-height: 30px;
@@ -245,19 +240,15 @@ export default {
             transition: all 0.5s ease;
             }
                 
-
+            .sort-leave-to,
             .sort-enter-from {
                 height: 0;
+                opacity: 0;
             }
             .sort-enter-to,
             .sort-leave-from {
                 height: 461px;
-            }
-            .sort-leave-to {
-                height: 0;
-            }
-            .sort-leave-to {
-                height: 0;
+                opacity: 1;
             }
           
         }

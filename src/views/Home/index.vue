@@ -23,7 +23,6 @@ import { mapState } from "vuex"
 export default {
   name:'Home',
   mounted() {
-    console.log('1111112')
     this.$store.dispatch("getFloorList")
   },
   computed: {
