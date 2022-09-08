@@ -25,3 +25,10 @@ export const reqGetSearchInfo = params => requests({
   method:'POST',
   data:params
 })
+
+
+//获取商品详情数据
+export const reqGetDetail = goodsId => requests({
+  url:`/item/${goodsId}`,
+  method:'GET'
+})

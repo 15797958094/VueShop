@@ -73,9 +73,9 @@
               <li class="yui3-u-1-5" v-for="item in goodsList" :key="item.id">
                 <div class="list-wrap">
                   <div class="p-img">
-                    <a href="item.html" target="_blank">
-                      <img :src="item.defaultImg"
-                    /></a>
+                    <router-link :to="`/detail/${item.id}`">
+                      <img :src="item.defaultImg"/>
+                    </router-link>
                   </div>
                   <div class="price">
                     <strong>
@@ -206,7 +206,6 @@ export default {
       this.getSearchData();
     },
     getSTrade(trade) {
-      console.log(trade);
       this.searchParams.trademark = `${trade.tmId}:${trade.tmName}`;
       this.getSearchData();
     },
